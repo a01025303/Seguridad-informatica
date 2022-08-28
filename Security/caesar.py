@@ -8,7 +8,6 @@ Karla Valeria Mondragón Rosas, A01025108
 
 #Import library for array
 from array import array
-from tkinter import N
 
 # Function that rotates alphabet
 def rotateAlphabet(key):
@@ -53,6 +52,7 @@ def caesarCipher(keyLetter, message):
                 # Update message, adding a letter from the rotated 
                 # array with the corresponding index
                 encryptedMessage = encryptedMessage + rotate[y]
+                break
     print(alphabet)
     print(rotate)
     # Print message
@@ -81,6 +81,7 @@ def caesarDecipher(message):
                     # Update message, adding a letter from the alphabet 
                     # array with the corresponding index
                     decryptedMessage = decryptedMessage + alphabet[k]
+                    break
         # for each key, print message
         print(decryptedMessage)
         # Ask user if text was successfully decrypted 
