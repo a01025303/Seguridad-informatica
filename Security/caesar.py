@@ -53,10 +53,8 @@ def caesarCipher(keyLetter, message):
                 # array with the corresponding index
                 encryptedMessage = encryptedMessage + rotate[y]
                 break
-    print(alphabet)
-    print(rotate)
     # Print message
-    print(encryptedMessage.upper())
+    print(encryptedMessage)
     # Return
     return 0
 

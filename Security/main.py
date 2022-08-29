@@ -13,13 +13,26 @@ from vigenere import *
 # Testing Caesar's Method
 # Read test file
 cipher1 = open('/Users/akemi/Desktop/TEC/Semestre5/Seguridad-informatica/Security/cipher1.txt', 'r')
-# Test cipher
-caesarCipher('n', 'wuwuwu')
-# Teste decifer
+# Test decipher
 caesarDecipher(cipher1.read())
+print()
+print()
+print()
+# Test cipher
+caesarCipher('n', 'hola me llamo karla y me pongo roja')
+print()
+print()
+print()
 
-#print(vigenereCipher('haeg', 'hola soy akemi y odio mucho hacer tarea boom'))
-
+# Testing Vigenere's Method
+# Read test file
 cipher2 = open('/Users/akemi/Desktop/TEC/Semestre5/Seguridad-informatica/Security/cipher2.txt', 'r')
+# Test decipher
 print(vigenereDecipher(4, cipher2.read()))
+print()
+print()
+print()
+# Test cipher
+print(vigenereCipher('haeg', 'hola soy akemi y tengo miopia aparentemente'))
+
 
