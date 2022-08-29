@@ -8,7 +8,7 @@ Karla Valeria Mondragón Rosas, A01025108
 #Import library for array
 from array import array
 from caesar import rotateAlphabet
-import numpy as np
+#import numpy as np
 from itertools import combinations
 
 
@@ -51,7 +51,7 @@ def vigenereCipher(key, message):
     newKey = keyForCipher(key, message)
     encryptedMessage = '' # final result of the encryption, starts empty
     #lowercase message 
-    message.lower()
+    message = message.lower()
     # Array for the letters in the alphabet (includes a space)
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ']
@@ -70,32 +70,34 @@ def vigenerKeyDecipher(keySize, message):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ']
     message = message.lower()
-    messageArray = list(message)
-    maxV = []
+    index = 0
     key = []
-    occurrance = countOccurrency(messageArray)
-    for i in range (0, keySize):
-        max_index = occurrance.index(max(occurrance))
-        maxV.append(max_index)
-        occurrance[max_index] = 0
-    for i in range (0, keySize):
-        key.append(alphabet[maxV[i]])
-        
-    print(combinations(key, keySize))
-    print(key)
-
-    '''key = []
     while (index < keySize):
         new  = []
-        product = []
         for i in range (index, len(message), keySize):
             new.append(message[i])
         occurrance = countOccurrency(new)
-        for i in range(0, len(occurrance)):
-            occurrance[i]/=len(new)
-        for i in range (0, 27):
-            product.append(np.dot(occurrance, new))
-            occurrance = rotateLeft(occurrance)'''
-    print(occurrance)
-        #index += 1
-    return 0
+        max_index = occurrance.index(max(occurrance))
+        # Assuming the most common char is ' ', it becomes evident that the key 
+        # will be max_index + 1 as, ' ' is the last element in the alphabet
+        if max_index == 26:
+            key.append(alphabet[0])
+        else: 
+            key.append(alphabet[max_index + 1])
+        index += 1
+        #print(occurrance)
+    print(key)
+    return ''.join(key)
+
+def vigenereDecipher(keySize, message): 
+    key = vigenerKeyDecipher(keySize, message)
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
+    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ']
+    newKey = keyForCipher(key, message)
+    decryptedMessage = ''
+    for i in range (0, len(message)): 
+        rotate = rotateAlphabet(newKey[i])
+        for j in range (0, 27):
+            if message[i] == rotate[j]:
+                decryptedMessage += alphabet[j]
+    return decryptedMessage

@@ -42,7 +42,7 @@ def caesarCipher(keyLetter, message):
     rotate = rotateAlphabet(keyLetter)
     # Code to translate message into encrypted message
     #lowercase message 
-    message.lower()
+    message = message.lower()
     # Cicle that iterates through every char in message
     for x in message:
         # Cicle that, for each char in message, looks for match in alphabet
@@ -65,7 +65,7 @@ def caesarDecipher(message):
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ']
     # Lowercase message to match alphabet
-    message.lower()
+    message = message.lower()
     # Variable to save decrypted message
     decryptedMessage = ''
     # Iterate through alphabet letters
