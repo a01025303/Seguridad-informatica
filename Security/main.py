@@ -9,6 +9,7 @@ Karla Valeria Mondragón Rosas, A01025108
 # Import caesar's method functions
 from caesar import *
 from vigenere import *
+from oneTimePad import * 
 
 # Testing Caesar's Method
 # Read test file
@@ -35,4 +36,5 @@ print()
 # Test cipher
 print(vigenereCipher('haeg', 'hola soy akemi y tengo miopia aparentemente'))
 
-
+# Testing One Time Pad
+print(oneTimePad('hola prof como estas'))
