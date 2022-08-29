@@ -35,6 +35,8 @@ print()
 print()
 # Test cipher
 print(vigenereCipher('haeg', 'hola soy akemi y tengo miopia aparentemente'))
-
+print()
+print()
+print()
 # Testing One Time Pad
 print(oneTimePad('hola prof como estas'))
